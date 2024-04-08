@@ -1,0 +1,75 @@
+[
+    {
+      "id": 1,
+      "estate_title": "Luxury Beachfront Villa",
+      "segment_name": "Residential",
+      "description": "This exquisite beachfront villa offers unparalleled luxury and breathtaking ocean views. With spacious living areas, a private pool, and direct beach access, it's a dream retreat for beach lovers.",
+      "price": "$3,500,000",
+      "status": "sale",
+      "area": "5000 sq ft",
+      "location": "Miami Beach, Florida",
+      "facilities": ["living room", "swimming pool", "kitchen"],
+      "image": "https://i.ibb.co/54vXSGV/chuttersnap-3-1f0-ZGOj-IY-unsplash.jpg"
+    },
+    {
+      "id": 2,
+      "estate_title": "Modern Downtown Apartment",
+      "segment_name": "Residential",
+      "description": "Located in the heart of the city, this modern apartment offers convenience and style. With sleek design, city views, and access to top-notch amenities, it's urban living at its finest.",
+      "price": "$2,000/month",
+      "status": "rent",
+      "area": "1200 sq ft",
+      "location": "Downtown Los Angeles, California",
+      "facilities": ["living room", "gym", "rooftop terrace"],
+      "image": "https://i.ibb.co/ysmCpBN/saru-robert-9r-P3mxf8q-WI-unsplash.jpg"
+    },
+    {
+      "id": 3,
+      "estate_title": "Cozy Suburban Home",
+      "segment_name": "Residential",
+      "description": "Escape to this charming suburban home surrounded by lush greenery. With a spacious backyard, cozy interiors, and a quiet neighborhood, it's perfect for families seeking tranquility.",
+      "price": "$450,000",
+      "status": "sale",
+      "area": "2500 sq ft",
+      "location": "Suburbia, New Jersey",
+      "facilities": ["living room", "backyard", "kitchen"],
+      "image": "https://i.ibb.co/9pbK9d8/malcolm-shadrach-r80-LCluv-VM-unsplash.jpg"
+    },
+    {
+      "id": 4,
+      "estate_title": "Spacious Countryside Estate",
+      "segment_name": "Residential",
+      "description": "Experience the charm of countryside living in this spacious estate. With sprawling grounds, elegant interiors, and panoramic views, it's a serene retreat away from the hustle and bustle.",
+      "price": "$1,200,000",
+      "status": "sale",
+      "area": "6000 sq ft",
+      "location": "Countryside, England",
+      "facilities": ["living room", "garden", "library"],
+      "image": "https://i.ibb.co/j8fY4Sk/gus-ruballo-h5-QNcl-JUi-A8-unsplash.jpg"
+    },
+    {
+      "id": 5,
+      "estate_title": "Historic Townhouse in the Heart of Paris",
+      "segment_name": "Residential",
+      "description": "Step back in time with this historic townhouse nestled in the heart of Paris. With elegant architecture, classic interiors, and proximity to iconic landmarks, it's a timeless gem.",
+      "price": "€1,800,000",
+      "status": "sale",
+      "area": "3500 sq ft",
+      "location": "Paris, France",
+      "facilities": ["living room", "terrace", "study"],
+      "image": "https://i.ibb.co/q7sfszW/frames-for-your-heart-2d4l-AQAlb-DA-unsplash.jpg"
+    },
+    {
+      "id": 6,
+      "estate_title": "Ski-in/Ski-out Chalet in the Swiss Alps",
+      "segment_name": "Residential",
+      "description": "Indulge in alpine luxury with this ski-in/ski-out chalet in the Swiss Alps. With stunning mountain views, modern amenities, and direct access to the slopes, it's a haven for ski enthusiasts.",
+      "price": "CHF 2,500,000",
+      "status": "sale",
+      "area": "4000 sq ft",
+      "location": "Verbier, Switzerland",
+      "facilities": ["living room", "sauna", "ski room"],
+      "image": "https://i.ibb.co/DVNrTLr/vita-vilcina-Kt-Oid0-FLjq-U-unsplash.jpg"
+    }
+  ]
+  
