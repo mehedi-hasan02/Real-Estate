@@ -9,7 +9,8 @@ const Navbar = () => {
     const { users , logOut} = useContext(AuthContext)
 
     const navLink = <>
-        <li><NavLink to='/'>Home</NavLink></li>
+        <li><NavLink to='/' className={({ isActive }) => isActive ? 'text-green-400 border border-green-400 btn hover:bg-white shadow-none hover:border-green-400' : 'btn bg-white shadow-none border-none'}>Home</NavLink></li>
+        <li><NavLink to='/contact' className={({ isActive }) => isActive ? 'text-green-400 border border-green-400 btn hover:bg-white shadow-none hover:border-green-400' : 'btn bg-white shadow-none border-none'}>Contact</NavLink></li>
     </>
 
     const handelSingOut = () =>{
@@ -29,10 +30,10 @@ const Navbar = () => {
                         {navLink}
                     </ul>
                 </div>
-                <a className="btn btn-ghost text-xl">Dream House</a>
+                <a className="btn btn-ghost text-xl">DreamHouse</a>
             </div>
             <div className="navbar-center hidden lg:flex">
-                <ul className="">
+                <ul className="menu menu-horizontal px-1 space-x-8">
                     {navLink}
                 </ul>
             </div>
