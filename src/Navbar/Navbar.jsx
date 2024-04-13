@@ -11,6 +11,7 @@ const Navbar = () => {
     const navLink = <>
         <li><NavLink to='/' className={({ isActive }) => isActive ? 'text-green-400 border border-green-400 btn hover:bg-white shadow-none hover:border-green-400' : 'btn bg-white shadow-none border-none'}>Home</NavLink></li>
         <li><NavLink to='/contact' className={({ isActive }) => isActive ? 'text-green-400 border border-green-400 btn hover:bg-white shadow-none hover:border-green-400' : 'btn bg-white shadow-none border-none'}>Contact</NavLink></li>
+        <li><NavLink to='/ourTeams' className={({ isActive }) => isActive ? 'text-green-400 border border-green-400 btn hover:bg-white shadow-none hover:border-green-400' : 'btn bg-white shadow-none border-none'}>Our Teams</NavLink></li>
     </>
 
     const handelSingOut = () =>{
@@ -30,7 +31,7 @@ const Navbar = () => {
                         {navLink}
                     </ul>
                 </div>
-                <a className="btn btn-ghost text-xl">DreamHouse</a>
+                <Link to='/' className="btn btn-ghost text-xl">DreamHouse</Link>
             </div>
             <div className="navbar-center hidden lg:flex">
                 <ul className="menu menu-horizontal px-1 space-x-8">

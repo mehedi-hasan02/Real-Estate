@@ -7,6 +7,7 @@ import Error from "../Error/Error";
 import PrivateRoutes from "./PrivateRoutes";
 import EstateDetails from "../EstateDetails/EstateDetails";
 import ContactUs from "../Pages/ContactUs/ContactUs";
+import OurTeams from "../Pages/OurTeams/OurTeams";
 
 const router = createBrowserRouter([
     {
@@ -27,6 +28,10 @@ const router = createBrowserRouter([
             {
                 path:'/contact',
                 element: <ContactUs/>
+            },
+            {
+                path:'/ourTeams',
+                element: <OurTeams/>,
             },
             {
                 path: '/login',
