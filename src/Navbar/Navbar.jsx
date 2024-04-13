@@ -1,15 +1,22 @@
 import { useContext } from "react";
 import { Link, NavLink } from "react-router-dom";
 import { AuthContext } from "../AuthProvider/AuthProvider";
+import auth from "../Firebase/firebase.config";
 
 
 const Navbar = () => {
 
-    const { user } = useContext(AuthContext)
+    const { users , logOut} = useContext(AuthContext)
 
     const navLink = <>
         <li><NavLink to='/'>Home</NavLink></li>
     </>
+
+    const handelSingOut = () =>{
+        logOut(auth)
+        .then()
+        .catch()
+    }
 
     return (
         <div className="navbar bg-base-100">
@@ -31,14 +38,14 @@ const Navbar = () => {
             </div>
             <div className="navbar-end">
                 {
-                    user ?
+                    users ?
                         <div>
                             <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar">
                                 <div className="w-10 rounded-full">
                                     <img alt="Tailwind CSS Navbar component" src="https://daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg" />
                                 </div>
                             </div>
-                            <Link className="btn" to='/'>Sign Out</Link>
+                            <Link onClick={handelSingOut} className="btn" to='/'>Sign Out</Link>
                         </div>
                         :
                         <Link className="btn" to='/login'>Login</Link>

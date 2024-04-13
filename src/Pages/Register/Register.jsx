@@ -1,7 +1,8 @@
 import { useContext } from "react";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../AuthProvider/AuthProvider";
-import { useForm } from "react-hook-form"
+import { useForm } from "react-hook-form";
+import toast, { Toaster } from 'react-hot-toast';
 
 
 const Register = () => {
@@ -14,24 +15,19 @@ const Register = () => {
       } = useForm();
 
       const onSubmit = (data) => {
-        createUser(data.email,data.password)
+        const {email,password} = data
+        createUser(email,password)
         .then(result=>console.log(result))
         .catch(error=>console.log(error))
+
+        if(!/A-Z/.test(password)) //toast not working
+        {
+            toast('Here is your toast.');
+            <Toaster/>
+        }
     }
 
 
-    // const handelRegister = e =>{
-    //     e.preventDefault();
-    //     const name = e.target.name.value;
-    //     const email = e.target.email.value;
-    //     const password = e.target.password.value;
-
-    //     createUser(email,password)
-    //     .then()
-    //     .catch(error=>{
-    //         console.error(error);
-    //     })
-    // }
 
     return (
         <div>
