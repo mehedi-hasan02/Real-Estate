@@ -1,31 +1,35 @@
-import { useContext } from "react";
-import { Link } from "react-router-dom";
+import { useContext, useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../AuthProvider/AuthProvider";
 import { useForm } from "react-hook-form";
-import { FaGofore,FaGithub } from "react-icons/fa";
+import { FaGofore, FaGithub } from "react-icons/fa";
+import { FaEye, FaEyeSlash } from "react-icons/fa";
 import toast, { Toaster } from 'react-hot-toast';
 
 
 
 const Login = () => {
+    const [showPassword, setShowPassword] = useState(false);
+    const { signIn, googleLogin, githubLogin } = useContext(AuthContext);
 
-    const {signIn, googleLogin, githubLogin} = useContext(AuthContext);
+    const navigate = useNavigate();
 
     const {
         register,
         handleSubmit,
         formState: { errors },
-      } = useForm();
+    } = useForm();
 
-      const onSubmit = (data) => {
-        const {email,password} = data;
-        signIn(email,password)
-        .then(result=>console.log(result))
-        .catch(error=>console.log(error))
+    const onSubmit = (data) => {
+        const { email, password } = data;
+        signIn(email, password)
+            .then(()=>{
+                navigate('/');
+            })
+            .catch(error => console.log(error))
 
-        
     }
-    
+
 
     return (
         <div className="hero min-h-screen ">
@@ -39,24 +43,30 @@ const Login = () => {
                             <label className="label">
                                 <span className="label-text">Email</span>
                             </label>
-                            <input type="email" name="email" placeholder="email" className="input input-bordered"  {...register("email", { required: true })}/>
+                            <input type="email" name="email" placeholder="email" className="input input-bordered"  {...register("email", { required: true })} />
                             {errors.email && <span className="text-red-500">This field is required</span>}
                         </div>
                         <div className="form-control">
                             <label className="label">
                                 <span className="label-text">Password</span>
                             </label>
-                            <input type="password" name="password" placeholder="password" className="input input-bordered" {...register("password", { required: true })} />
+                            <div className="flex items-center w-full relative">
+                                <input type={showPassword ? "text" : "password"} name="password" placeholder="password" className="input input-bordered w-full" {...register("password", { required: true })} />
+                                <span onClick={() => setShowPassword(!showPassword)}>
+                                    {showPassword ? <FaEyeSlash className="absolute top-4 right-2 cursor-pointer"></FaEyeSlash> : <FaEye className="absolute top-4 right-2 cursor-pointer" />}
+                                </span>
+
+                            </div>
                             {errors.password && <span className="text-red-500">This field is required</span>}
                             <label className="label">
                                 <a href="#" className="label-text-alt link link-hover">Forgot password?</a>
                             </label>
                         </div>
                         <div className="bg-red-500 p-1 rounded-2xl text-white ">
-                            <Link className="flex justify-center items-center gap-2" onClick={googleLogin}><FaGofore/>Google</Link>
+                            <Link className="flex justify-center items-center gap-2" onClick={googleLogin}><FaGofore />Google</Link>
                         </div>
                         <div className="bg-gray-500 p-1 rounded-2xl text-white text-center">
-                            <Link className="flex justify-center items-center gap-2" onClick={githubLogin}><FaGithub/>Github</Link>
+                            <Link className="flex justify-center items-center gap-2" onClick={githubLogin}><FaGithub />Github</Link>
                         </div>
                         <div className="form-control mt-6">
                             <button className="btn btn-primary">Login</button>
