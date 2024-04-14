@@ -1,6 +1,7 @@
 import React, { useContext, useState } from "react";
 import { AuthContext } from "../../AuthProvider/AuthProvider";
 import { useNavigate } from "react-router-dom";
+import { Helmet } from "react-helmet";
 
 const UpdateProfile = () => {
     const { users,handleUpdateProfile } = useContext(AuthContext);
@@ -19,7 +20,12 @@ const UpdateProfile = () => {
     };
 
     return (
-        <div className="hero min-h-[610px]">
+        <div className="hero min-h-[690px]">
+            <Helmet>
+                <meta charSet="utf-8" />
+                <title>Update Profile</title>
+                <link rel="canonical" href="http://mysite.com/example" />
+            </Helmet>
             <div className="hero-content w-[1200px]  flex-col">
                 <div className="card shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
                     <form onSubmit={handleFormSubmit} className="card-body">

@@ -17,10 +17,10 @@ const EstateDetails = () => {
         <div>
             {stateDetails && (
                 <div className="container flex flex-col justify-center p-6 mx-auto sm:py-12 lg:py-24 lg:flex-row lg:justify-between gap-12">
-                    <div className="flex items-center justify-center p-6 mt-8 lg:mt-0   flex-1 bg-[#1313130D] rounded-xl">
-                        <img src={stateDetails.image} alt="" className="object-contain  h-full" />
+                    <div className="flex p-2 mt-8 lg:mt-0 flex-1 bg-[#1313130D] rounded-xl">
+                        <img src={stateDetails.image} alt="" className=" w-full lg:h-[500px] bg-cover rounded-xl" />
                     </div>
-                    <div className="flex flex-col rounded-sm  flex-1 space-y-4">
+                    <div className="flex flex-col rounded-sm  flex-1 space-y-4 mt-5">
                         <h1 className=" leading-none text-4xl font-bold">{stateDetails.estate_title}</h1>
                         <p className="text-lg">By: {stateDetails.segment_name}</p>
                         <hr />
@@ -42,7 +42,7 @@ const EstateDetails = () => {
                         </div>
                         <div>
                         <Link to='/'>
-                            <button>Back to home</button>
+                            <button className="btn bg-green-500 text-white">Back to home</button>
                         </Link>
                     </div>
                     </div>

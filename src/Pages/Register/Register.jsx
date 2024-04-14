@@ -4,10 +4,12 @@ import { AuthContext } from "../../AuthProvider/AuthProvider";
 import { useForm } from "react-hook-form";
 import toast, { Toaster } from 'react-hot-toast';
 import { FaEye, FaEyeSlash } from "react-icons/fa";
+import auth from "../../Firebase/firebase.config";
+import { Helmet } from "react-helmet";
 
 
 const Register = () => {
-    const { createUser,handleUpdateProfile } = useContext(AuthContext);
+    const { createUser,handleUpdateProfile,logOut } = useContext(AuthContext);
     const [registerError, setRegisterError] = useState('');
     const [showPassword, setShowPassword] = useState(false);
 
@@ -23,32 +25,34 @@ const Register = () => {
 
     const onSubmit = (data) => {
         const { name,email, password,photo } = data;
+
+        if (!/(?=.*[A-Z])(?=.*[a-z]).{6,}/.test(password)) {
+            toast.error('Password must have at least one uppercase letter, one lowercase letter, and be at least 6 characters long.');
+            return;
+        }
         createUser(email, password)
         .then(res => {
             handleUpdateProfile(name,photo)
+            logOut()
+            toast.success('User created successfully');
             navigate('/')
-                // .then(() => {
-                //     toast.success('User created successfully');
-                //     navigate('/')
-
-                // })
         })
             .catch(error => {
                 setRegisterError(error.message);
             })
 
-        if (!/A-Z/.test(password)) //toast not working
-        {
-            toast('Here is your toast.');
-            <Toaster />
-        }
     }
 
 
 
     return (
-        <div>
-            <h1 className="text-5xl font-bold text-center mt-5">Register now!</h1>
+        <div className="mt-10 mb-10">
+            <Helmet>
+                <meta charSet="utf-8" />
+                <title>Register</title>
+                <link rel="canonical" href="http://mysite.com/example" />
+            </Helmet>
+            <h1 className="text-5xl font-bold text-center mt-5 mb-5">Register now!</h1>
             <div className="card shrink-0 w-full max-w-sm shadow-2xl bg-base-100 mx-auto mt-5">
                 <form onSubmit={handleSubmit(onSubmit)} className="card-body">
                     <div className="form-control">
@@ -69,7 +73,8 @@ const Register = () => {
                         <label className="label">
                             <span className="label-text">Photo URL</span>
                         </label>
-                        <input type="text" name="photo" placeholder="photo url" className="input input-bordered"  {...register("photo")} />
+                        <input type="text" name="photo" placeholder="photo url" className="input input-bordered"  {...register("photo", { required: true })} />
+                        {errors.photo && <span className="text-red-500">This field is required</span>}
                     </div>
                     <div className="form-control">
                         <label className="label">
@@ -91,10 +96,11 @@ const Register = () => {
                         <Link className="text-blue-800" to='/login'> Login</Link>
                     </p>
                 </form>
-                {
+                {/* {
                     registerError && <p>{registerError}</p>
-                }
+                } */}
             </div>
+            {/* <Toaster position="bottom-center" /> */}
         </div>
     );
 };

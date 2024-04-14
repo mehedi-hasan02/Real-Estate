@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Helmet } from "react-helmet";
 import toast from "react-hot-toast";
     
 
@@ -18,7 +19,12 @@ const ContactUs = () => {
         }
     };
     return (
-        <section className="p-6 dark:text-gray-800 lg:mt-20 ">
+        <section className="p-6 dark:text-gray-800 lg:mt-20 min-h-[610px]">
+            <Helmet>
+                <meta charSet="utf-8" />
+                <title>Contact Us</title>
+                <link rel="canonical" href="http://mysite.com/example" />
+            </Helmet>
             <form onSubmit={handleSend} className="container w-full max-w-xl p-8 mx-auto space-y-6 rounded-md shadow dark:bg-gray-50 border">
                 <h2 className="w-full text-3xl font-bold leading-tight">Contact us</h2>
                 <div>

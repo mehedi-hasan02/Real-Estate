@@ -5,6 +5,7 @@ import { useForm } from "react-hook-form";
 import { FaGofore, FaGithub } from "react-icons/fa";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import toast, { Toaster } from 'react-hot-toast';
+import { Helmet } from "react-helmet";
 
 
 
@@ -24,6 +25,7 @@ const Login = () => {
         const { email, password } = data;
         signIn(email, password)
             .then(()=>{
+                toast.success('Login successfully');
                 navigate('/');
             })
             .catch(error => console.log(error))
@@ -38,9 +40,14 @@ const Login = () => {
 
 
     return (
-        <div className="hero min-h-screen ">
-            <div className="hero-content flex-col ">
-                <div className="text-center lg:text-left">
+        <div className="hero min-h-[690px] ">
+            <Helmet>
+                <meta charSet="utf-8" />
+                <title>LogIn</title>
+                <link rel="canonical" href="http://mysite.com/example" />
+            </Helmet>
+            <div className="hero-content flex-col w-[1000px]">
+                <div className="text-center lg:text-left mb-10">
                     <h1 className="text-5xl font-bold">Login now!</h1>
                 </div>
                 <div className="card shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
