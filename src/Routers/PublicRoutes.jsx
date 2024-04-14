@@ -8,6 +8,7 @@ import PrivateRoutes from "./PrivateRoutes";
 import EstateDetails from "../EstateDetails/EstateDetails";
 import ContactUs from "../Pages/ContactUs/ContactUs";
 import OurTeams from "../Pages/OurTeams/OurTeams";
+import UpdateProfile from "../Pages/UpdateProfile/UpdateProfile";
 
 const router = createBrowserRouter([
     {
@@ -32,6 +33,10 @@ const router = createBrowserRouter([
             {
                 path:'/ourTeams',
                 element: <OurTeams/>,
+            },
+            {
+                path: '/updateProfile',
+                element: <PrivateRoutes><UpdateProfile></UpdateProfile></PrivateRoutes>
             },
             {
                 path: '/login',

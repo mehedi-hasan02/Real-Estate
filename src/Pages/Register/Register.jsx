@@ -1,5 +1,5 @@
 import { useContext, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../AuthProvider/AuthProvider";
 import { useForm } from "react-hook-form";
 import toast, { Toaster } from 'react-hot-toast';
@@ -7,10 +7,13 @@ import { FaEye, FaEyeSlash } from "react-icons/fa";
 
 
 const Register = () => {
-    const { createUser } = useContext(AuthContext);
-
+    const { createUser,handleUpdateProfile } = useContext(AuthContext);
     const [registerError, setRegisterError] = useState('');
     const [showPassword, setShowPassword] = useState(false);
+
+    const navigate = useNavigate();
+
+
 
     const {
         register,
@@ -19,9 +22,17 @@ const Register = () => {
     } = useForm();
 
     const onSubmit = (data) => {
-        const { email, password } = data
+        const { name,email, password,photo } = data;
         createUser(email, password)
-            .then()
+        .then(res => {
+            handleUpdateProfile(name,photo)
+            navigate('/')
+                // .then(() => {
+                //     toast.success('User created successfully');
+                //     navigate('/')
+
+                // })
+        })
             .catch(error => {
                 setRegisterError(error.message);
             })
