@@ -2,12 +2,12 @@ import { useContext } from "react";
 import { Link, NavLink } from "react-router-dom";
 import { AuthContext } from "../AuthProvider/AuthProvider";
 import auth from "../Firebase/firebase.config";
+import { FaRegUserCircle } from "react-icons/fa";
 
 
 const Navbar = () => {
 
     const { users, logOut } = useContext(AuthContext)
-    console.log(users);
 
     const navLink = <>
         <li><NavLink to='/' className={({ isActive }) => isActive ? 'text-green-400 border border-green-400 btn hover:bg-white shadow-none hover:border-green-400' : 'btn bg-white shadow-none border-none'}>Home</NavLink></li>
@@ -46,7 +46,7 @@ const Navbar = () => {
                         <div className="flex gap-2">
                             <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar">
                                 <div className="w-10 rounded-full tooltip " data-tip="hello">                                   
-                                        <img className="hidden md:flex lg:flex" alt="Tailwind CSS Navbar component" src={users.photoURL
+                                        <img className="hidden md:flex lg:flex" alt="Tailwind CSS Navbar component" src={users.photoURL? users.photoURL : <FaRegUserCircle></FaRegUserCircle>
                                         } />
                                 </div>
                             </div>

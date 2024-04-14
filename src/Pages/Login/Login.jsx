@@ -30,6 +30,12 @@ const Login = () => {
 
     }
 
+    // const handelGoogleLogin = () =>{
+    //     navigate('/');
+    //     googleLogin();
+        
+    // }
+
 
     return (
         <div className="hero min-h-screen ">

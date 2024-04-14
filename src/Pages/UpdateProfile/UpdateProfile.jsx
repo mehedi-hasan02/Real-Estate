@@ -19,8 +19,8 @@ const UpdateProfile = () => {
     };
 
     return (
-        <div className="hero">
-            <div className="hero-content flex-col">
+        <div className="hero min-h-[610px]">
+            <div className="hero-content w-[1200px]  flex-col">
                 <div className="card shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
                     <form onSubmit={handleFormSubmit} className="card-body">
                         <div className="form-control">
