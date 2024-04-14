@@ -45,12 +45,9 @@ const Navbar = () => {
                     users ?
                         <div className="flex gap-2">
                             <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar">
-                                <div className="w-10 rounded-full">
-                                    <div className="tooltip" data-tip="hello">
-                                        <img alt="Tailwind CSS Navbar component" src={users.photoURL
+                                <div className="w-10 rounded-full tooltip " data-tip="hello">                                   
+                                        <img className="hidden md:flex lg:flex" alt="Tailwind CSS Navbar component" src={users.photoURL
                                         } />
-                                    </div>
-
                                 </div>
                             </div>
                             <Link onClick={handelSingOut} className="btn">Sign Out</Link>
