@@ -20,7 +20,7 @@ const Navbar = () => {
     const handelSingOut = () => {
         logOut(auth)
             .then()
-            .catch()
+            .catch()           
     }
 
     return (
@@ -47,7 +47,7 @@ const Navbar = () => {
                         <div className="flex gap-2">
                             <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar">
                                 <div className="w-10 rounded-full ">                                   
-                                <img className="hidden md:flex lg:flex" alt="User Avatar" src={users.photoURL ? users.photoURL : <FaRegUserCircle />} title={users.displayName} />
+                                <img className="hidden md:flex lg:flex" alt="User Avatar" src={users.photoURL}/>
                                 </div>
                             </div>
                             <Link onClick={handelSingOut} className="btn">Sign Out</Link>

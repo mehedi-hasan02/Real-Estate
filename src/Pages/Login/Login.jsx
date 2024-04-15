@@ -9,11 +9,11 @@ import { Helmet } from "react-helmet";
 
 
 
+
 const Login = () => {
     const [showPassword, setShowPassword] = useState(false);
     const { signIn, googleLogin, githubLogin } = useContext(AuthContext);
     const [logInError, setLogInError] = useState('');
-
     const navigate = useNavigate();
 
     const {
@@ -35,6 +35,17 @@ const Login = () => {
                 {
                     logInError && toast.error('Invalid Email and Password');
                 }
+            })
+    }
+
+    const handleSocialLogin = (media) => {
+        media()
+            .then(res => {
+                toast.success('User logged in successfully');
+                navigate('/')
+            })
+            .catch(error => {
+                toast.error(error.message)
             })
     }
 
@@ -75,15 +86,14 @@ const Login = () => {
                             </label>
                         </div>
                         <div className="bg-red-500 p-1 rounded-2xl text-white ">
-                            <Link className="flex justify-center items-center gap-2" onClick={googleLogin}><FaGofore />Google</Link>
+                            <Link className="flex justify-center items-center gap-2" onClick={()=>handleSocialLogin(googleLogin)}><FaGofore />Google</Link>
                         </div>
                         <div className="bg-gray-500 p-1 rounded-2xl text-white text-center">
-                            <Link className="flex justify-center items-center gap-2" onClick={githubLogin}><FaGithub />Github</Link>
+                            <Link className="flex justify-center items-center gap-2" onClick={()=>handleSocialLogin(githubLogin)}><FaGithub />Github</Link>
                         </div>
                         <div className="form-control mt-6">
                             <button className="btn btn-primary">Login</button>
                         </div>
-
                         <p>Don't have an account? <Link className="text-blue-600" to='/register'>Register</Link></p>
                     </form>
                 </div>

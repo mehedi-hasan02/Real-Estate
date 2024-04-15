@@ -18,7 +18,7 @@ const EstateDetails = () => {
             {stateDetails && (
                 <div className="container flex flex-col justify-center p-6 mx-auto sm:py-12 lg:py-24 lg:flex-row lg:justify-between gap-12">
                     <div className="flex p-2 mt-8 lg:mt-0 flex-1 bg-[#1313130D] rounded-xl">
-                        <img src={stateDetails.image} alt="" className=" w-full lg:h-[500px] bg-cover rounded-xl" />
+                        <img src={stateDetails.image} alt="" className=" w-full h-[170px] md:h-[460px] lg:h-[500px] bg-cover rounded-xl" />
                     </div>
                     <div className="flex flex-col rounded-sm  flex-1 space-y-4 mt-5">
                         <h1 className=" leading-none text-4xl font-bold">{stateDetails.estate_title}</h1>
@@ -31,10 +31,10 @@ const EstateDetails = () => {
                         </div>
                         <hr />
                         <p><span className="font-bold">Review:</span> {stateDetails.description}</p>
-                        <div className="flex gap-3 items-center">
-                            <p className="font-bold">Facilities</p>
+                        <div className="flex flex-wrap lg:gap-3 items-center">
+                            <p className="font-bold">Facilities :</p>
                             {
-                                stateDetails.facilities.map(tag => <p key={id} className="bg-[#17BE0A0D] rounded-full px-3 p-1 text-[#23BE0A] font-bold whitespace-nowrap">{tag}</p>)
+                                stateDetails.facilities.map(tag => <p key={id} className="bg-[#17BE0A0D] rounded-full lg:px-3 p-1 text-[#23BE0A] font-bold whitespace-nowrap">{tag}</p>)
                             }
                         </div>
                         <div>
