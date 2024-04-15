@@ -2,6 +2,7 @@ import React, { useContext, useState } from "react";
 import { AuthContext } from "../../AuthProvider/AuthProvider";
 import { useNavigate } from "react-router-dom";
 import { Helmet } from "react-helmet";
+import toast from "react-hot-toast";
 
 const UpdateProfile = () => {
     const { users,handleUpdateProfile } = useContext(AuthContext);
@@ -15,6 +16,7 @@ const UpdateProfile = () => {
         const newName = e.target.name.value;
         const newPhoto = e.target.photo.value;
         handleUpdateProfile(newName,newPhoto);
+        toast.success('Profile Update Successful')
         navigate('/');
         
     };

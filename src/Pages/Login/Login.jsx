@@ -4,7 +4,7 @@ import { AuthContext } from "../../AuthProvider/AuthProvider";
 import { useForm } from "react-hook-form";
 import { FaGofore, FaGithub } from "react-icons/fa";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
-import toast, { Toaster } from 'react-hot-toast';
+import toast from 'react-hot-toast';
 import { Helmet } from "react-helmet";
 
 
@@ -12,6 +12,7 @@ import { Helmet } from "react-helmet";
 const Login = () => {
     const [showPassword, setShowPassword] = useState(false);
     const { signIn, googleLogin, githubLogin } = useContext(AuthContext);
+    const [logInError, setLogInError] = useState('');
 
     const navigate = useNavigate();
 
@@ -22,22 +23,20 @@ const Login = () => {
     } = useForm();
 
     const onSubmit = (data) => {
+        setLogInError('')
         const { email, password } = data;
         signIn(email, password)
-            .then(()=>{
+            .then(() => {
                 toast.success('Login successfully');
                 navigate('/');
             })
-            .catch(error => console.log(error))
-
+            .catch((error) => {
+                setLogInError(error.message)
+                {
+                    logInError && toast.error('Invalid Email and Password');
+                }
+            })
     }
-
-    // const handelGoogleLogin = () =>{
-    //     navigate('/');
-    //     googleLogin();
-        
-    // }
-
 
     return (
         <div className="hero min-h-[690px] ">
