@@ -11,9 +11,10 @@ const Navbar = () => {
 
     const navLink = <>
         <li><NavLink to='/' className={({ isActive }) => isActive ? 'text-green-400 border border-green-400 btn hover:bg-white shadow-none hover:border-green-400' : 'btn bg-white shadow-none border-none'}>Home</NavLink></li>
+        <li><NavLink to='/updateProfile' className={({ isActive }) => isActive ? 'text-green-400 border border-green-400 btn hover:bg-white shadow-none hover:border-green-400' : 'btn bg-white shadow-none border-none'}>Update Profile</NavLink></li>
         <li><NavLink to='/contact' className={({ isActive }) => isActive ? 'text-green-400 border border-green-400 btn hover:bg-white shadow-none hover:border-green-400' : 'btn bg-white shadow-none border-none'}>Contact</NavLink></li>
         <li><NavLink to='/ourTeams' className={({ isActive }) => isActive ? 'text-green-400 border border-green-400 btn hover:bg-white shadow-none hover:border-green-400' : 'btn bg-white shadow-none border-none'}>Our Teams</NavLink></li>
-        <li><NavLink to='/updateProfile' className={({ isActive }) => isActive ? 'text-green-400 border border-green-400 btn hover:bg-white shadow-none hover:border-green-400' : 'btn bg-white shadow-none border-none'}>Update Profile</NavLink></li>
+        
     </>
 
     const handelSingOut = () => {
@@ -45,9 +46,8 @@ const Navbar = () => {
                     users ?
                         <div className="flex gap-2">
                             <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar">
-                                <div className="w-10 rounded-full tooltip " data-tip="hello">                                   
-                                        <img className="hidden md:flex lg:flex" alt="Tailwind CSS Navbar component" src={users.photoURL? users.photoURL : <FaRegUserCircle></FaRegUserCircle>
-                                        } />
+                                <div className="w-10 rounded-full ">                                   
+                                <img className="hidden md:flex lg:flex" alt="User Avatar" src={users.photoURL ? users.photoURL : <FaRegUserCircle />} title={users.displayName} />
                                 </div>
                             </div>
                             <Link onClick={handelSingOut} className="btn">Sign Out</Link>

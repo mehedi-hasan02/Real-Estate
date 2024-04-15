@@ -11,11 +11,11 @@ const OurTeams = () => {
                 <link rel="canonical" href="http://mysite.com/example" />
             </Helmet>
             <div className="mt-10">
-                <h1 className="text-5xl font-bold text-center">Our Teams</h1>
-                <p className="w-3/5 mx-auto text-center mt-3 mb-10">Our team is a synergy of visionary architects, meticulous project managers, and dedicated customer service representatives. Together, we strive to exceed expectations, delivering exceptional residential properties with innovation, quality, and unwavering commitment.</p>
+                <h1 className="text-3xl lg:text-5xl font-bold text-center">Our Teams</h1>
+                <p className="lg:w-3/5 mx-auto text-center mt-3 mb-10">Our team is a synergy of visionary architects, meticulous project managers, and dedicated customer service representatives. Together, we strive to exceed expectations, delivering exceptional residential properties with innovation, quality, and unwavering commitment.</p>
             </div>
-            <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 mb-10'>
-                <div className="card w-96 bg-base-100 shadow-xl">
+            <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 mb-10'>
+                <div className="card bg-base-100 shadow-xl">
                     <figure className="px-10 pt-10">
                         <img src={PR} alt="Shoes" className="rounded-xl h-[250px]" />
                     </figure>
@@ -32,7 +32,7 @@ const OurTeams = () => {
                         </div>
                     </div>
                 </div>
-                <div className="card w-96 bg-base-100 shadow-xl">
+                <div className="card bg-base-100 shadow-xl">
                     <figure className="px-10 pt-10">
                         <img src={seniorManager} alt="Shoes" className="rounded-xl h-[250px]" />
                     </figure>
@@ -49,7 +49,7 @@ const OurTeams = () => {
                         </div>
                     </div>
                 </div>
-                <div className="card w-96 bg-base-100 shadow-xl">
+                <div className="card bg-base-100 shadow-xl">
                     <figure className="px-10 pt-10">
                         <img src={asstManager} alt="Shoes" className="rounded-xl h-[250px]" />
                     </figure>

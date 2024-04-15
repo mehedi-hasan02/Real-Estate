@@ -17,7 +17,7 @@ const Home = () => {
                 <title>Home</title>
                 <link rel="canonical" href="http://mysite.com/example" />
             </Helmet>
-            <div className="mt-10 mb-10">
+            <div className="mt-10 lg:mb-10">
                 <Banner></Banner>
             </div>
             <div className="mb-10">

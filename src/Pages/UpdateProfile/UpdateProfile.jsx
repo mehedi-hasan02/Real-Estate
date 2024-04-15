@@ -20,13 +20,13 @@ const UpdateProfile = () => {
     };
 
     return (
-        <div className="hero min-h-[690px]">
+        <div className="hero lg:min-h-[690px]">
             <Helmet>
                 <meta charSet="utf-8" />
                 <title>Update Profile</title>
                 <link rel="canonical" href="http://mysite.com/example" />
             </Helmet>
-            <div className="hero-content w-[1200px]  flex-col">
+            <div className="hero-content md:w-[700px] lg:w-[1200px]  flex-col">
                 <div className="card shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
                     <form onSubmit={handleFormSubmit} className="card-body">
                         <div className="form-control">

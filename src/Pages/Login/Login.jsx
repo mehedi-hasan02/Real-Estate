@@ -46,7 +46,7 @@ const Login = () => {
                 <title>LogIn</title>
                 <link rel="canonical" href="http://mysite.com/example" />
             </Helmet>
-            <div className="hero-content flex-col w-[1000px]">
+            <div className="hero-content flex-col w-full lg:w-[1000px]">
                 <div className="text-center lg:text-left mb-10">
                     <h1 className="text-5xl font-bold">Login now!</h1>
                 </div>

@@ -46,7 +46,7 @@ const Register = () => {
 
 
     return (
-        <div className="mt-10 mb-10">
+        <div className="mt-10 mb-10 p-5">
             <Helmet>
                 <meta charSet="utf-8" />
                 <title>Register</title>
