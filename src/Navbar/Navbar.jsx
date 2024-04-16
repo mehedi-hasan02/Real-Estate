@@ -50,7 +50,7 @@ const Navbar = () => {
                                 <img className="hidden md:flex lg:flex" alt="User Avatar" src={users.photoURL}/>
                                 </div>
                             </div>
-                            <Link onClick={handelSingOut} className="btn">Sign Out</Link>
+                            <Link onClick={handelSingOut} className="btn">Log Out</Link>
                         </div>
                         :
                         <Link className="btn" to='/login'>Login</Link>
