@@ -20,7 +20,7 @@ const Estate = ({ estates }) => {
                     </div>
                     <div data-aos="zoom-in" data-aos-delay="800" className="flex gap-2 text-center">
                         {
-                            facilities.map(facilitie => <p className="bg-[#d5fccf] rounded-xl">{facilitie}</p>)
+                            facilities.map(facilitie => <p className="bg-[#d5fccf] md:px-1 lg:px-1 rounded-xl">{facilitie}</p>)
                         }
                     </div>
                     <div data-aos="zoom-in" data-aos-delay="950" >
@@ -29,7 +29,7 @@ const Estate = ({ estates }) => {
 
                     <div data-aos="zoom-in" data-aos-delay="1100" className="card-actions">
                         <Link to={`/estateDetails/${id}`}>
-                            <button className="btn bg-[#23BE0A] text-white">View Property</button>
+                            <button className="btn bg-[#23BE0A] hover:bg-[#23BE0A] text-white">View Property</button>
                         </Link>
                     </div>
                 </div>

@@ -2,25 +2,23 @@ import { useContext } from "react";
 import { Link, NavLink } from "react-router-dom";
 import { AuthContext } from "../AuthProvider/AuthProvider";
 import auth from "../Firebase/firebase.config";
-import { FaRegUserCircle } from "react-icons/fa";
-
 
 const Navbar = () => {
 
     const { users, logOut } = useContext(AuthContext)
 
     const navLink = <>
-        <li><NavLink to='/' className={({ isActive }) => isActive ? 'text-green-400 border border-green-400 btn hover:bg-white shadow-none hover:border-green-400' : 'btn bg-white shadow-none border-none'}>Home</NavLink></li>
-        <li><NavLink to='/updateProfile' className={({ isActive }) => isActive ? 'text-green-400 border border-green-400 btn hover:bg-white shadow-none hover:border-green-400' : 'btn bg-white shadow-none border-none'}>Update Profile</NavLink></li>
-        <li><NavLink to='/contact' className={({ isActive }) => isActive ? 'text-green-400 border border-green-400 btn hover:bg-white shadow-none hover:border-green-400' : 'btn bg-white shadow-none border-none'}>Contact</NavLink></li>
-        <li><NavLink to='/ourTeams' className={({ isActive }) => isActive ? 'text-green-400 border border-green-400 btn hover:bg-white shadow-none hover:border-green-400' : 'btn bg-white shadow-none border-none'}>Our Teams</NavLink></li>
-        
+        <li><NavLink to='/' className={({ isActive }) => isActive ? 'text-orange-400 border border-orange-400 btn hover:bg-white shadow-none hover:border-orange-400' : 'btn bg-white shadow-none border-none'}>Home</NavLink></li>
+        <li><NavLink to='/profile' className={({ isActive }) => isActive ? 'text-orange-400 border border-orange-400 btn hover:bg-white shadow-none hover:border-orange-400' : 'btn bg-white shadow-none border-none'}>Profile</NavLink></li>
+        <li><NavLink to='/updateProfile' className={({ isActive }) => isActive ? 'text-orange-400 border border-orange-400 btn hover:bg-white shadow-none hover:border-orange-400' : 'btn bg-white shadow-none border-none'}>Update Profile</NavLink></li>
+        <li><NavLink to='/contact' className={({ isActive }) => isActive ? 'text-orange-400 border border-orange-400 btn hover:bg-white shadow-none hover:border-orange-400' : 'btn bg-white shadow-none border-none'}>Contact</NavLink></li>
+        <li><NavLink to='/ourTeams' className={({ isActive }) => isActive ? 'text-orange-400 border border-orange-400 btn hover:bg-white shadow-none hover:border-orange-400' : 'btn bg-white shadow-none border-none'}>Our Teams</NavLink></li>
     </>
 
     const handelSingOut = () => {
         logOut(auth)
             .then()
-            .catch()           
+            .catch()
     }
 
     return (
@@ -34,7 +32,10 @@ const Navbar = () => {
                         {navLink}
                     </ul>
                 </div>
-                <Link to='/' className="btn btn-ghost text-xl">DreamHouse</Link>
+
+
+<Link to='/' className="btn btn-ghost text-xl lg:text-2xl font-bold -ml-5 md:-ml-0 lg:-ml-0">DreamHouse</Link>
+
             </div>
             <div className="navbar-center hidden lg:flex">
                 <ul className="menu menu-horizontal px-1 space-x-8">
@@ -46,14 +47,14 @@ const Navbar = () => {
                     users ?
                         <div className="flex gap-2">
                             <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar">
-                                <div className="w-10 rounded-full ">                                   
-                                <img className="hidden md:flex lg:flex" alt="User Avatar" src={users.photoURL}/>
+                                <div className="w-10 rounded-full ">
+                                    <img className="hidden md:flex lg:flex" alt="User Avatar" src={users.photoURL} title={users.displayName} />
                                 </div>
                             </div>
-                            <Link onClick={handelSingOut} className="btn">Log Out</Link>
+                            <Link onClick={handelSingOut} className="btn bg-green-500 text-white hover:bg-green-500 text-white">Log Out</Link>
                         </div>
                         :
-                        <Link className="btn" to='/login'>Login</Link>
+                        <Link className="btn bg-green-500 text-white hover:bg-green-500 text-white" to='/login'>Login</Link>
                 }
             </div>
         </div>

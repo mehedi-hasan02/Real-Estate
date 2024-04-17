@@ -1,11 +1,11 @@
-import React, { useContext, useState } from "react";
+import { useContext, useState } from "react";
 import { AuthContext } from "../../AuthProvider/AuthProvider";
 import { useNavigate } from "react-router-dom";
 import { Helmet } from "react-helmet";
 import toast from "react-hot-toast";
 
 const UpdateProfile = () => {
-    const { users,handleUpdateProfile } = useContext(AuthContext);
+    const { users, handleUpdateProfile } = useContext(AuthContext);
     const navigate = useNavigate();
     const [name, setName] = useState(users.displayName || '');
     const [email, setEmail] = useState(users.email || '');
@@ -15,10 +15,10 @@ const UpdateProfile = () => {
         e.preventDefault();
         const newName = e.target.name.value;
         const newPhoto = e.target.photo.value;
-        handleUpdateProfile(newName,newPhoto);
+        handleUpdateProfile(newName, newPhoto);
         toast.success('Profile Update Successful')
         navigate('/');
-        
+
     };
 
     return (
@@ -29,7 +29,12 @@ const UpdateProfile = () => {
                 <link rel="canonical" href="http://mysite.com/example" />
             </Helmet>
             <div className="hero-content md:w-[700px] lg:w-[1200px]  flex-col">
+                <div className="text-center">
+                    <h1 className="text-2xl md:text-3xl lg:text-3xl font-bold"><span>Hi! </span>{name}</h1>
+                    <p>Update Your Profile</p>
+                </div>
                 <div className="card shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
+
                     <form onSubmit={handleFormSubmit} className="card-body">
                         <div className="form-control">
                             <label className="label">
@@ -56,6 +61,7 @@ const UpdateProfile = () => {
                                 className="input input-bordered"
                                 value={email}
                                 onChange={(e) => setEmail(e.target.value)}
+                                readOnly
                                 required
                             />
                         </div>

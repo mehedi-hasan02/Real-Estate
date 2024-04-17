@@ -19,13 +19,13 @@ const EstateDetails = () => {
             {stateDetails && (
                 <div className="container flex flex-col justify-center p-6 mx-auto sm:py-12 lg:py-24 lg:flex-row lg:justify-between gap-12">
                     <div className="flex p-2 mt-8 lg:mt-0 flex-1 bg-[#1313130D] rounded-xl">
-                        <img src={stateDetails.image} alt="" className="hover:animate__animated hover:animate__pulse w-full h-[170px] md:h-[460px] lg:h-[500px] bg-cover rounded-xl" />
+                        <img src={stateDetails.image} alt="" className=" w-full h-[170px] md:h-[460px] lg:h-[500px] bg-cover rounded-xl" />
                     </div>
                     <div className="flex flex-col rounded-sm  flex-1 space-y-4 mt-5">
                         <h1 className="animate__animated animate__fadeInRight leading-none text-4xl font-bold">{stateDetails.estate_title}</h1>
-                        <p className="animate__animated animate__fadeInRight animate__delay-1s text-lg">By: {stateDetails.segment_name}</p>
+                        <p className="animate__animated animate__fadeInRight text-lg my-element">By: {stateDetails.segment_name}</p>
                         <hr />
-                        <div className="animate__animated animate__fadeInRight animate__delay-1.5s flex gap-5">
+                        <div className="animate__animated animate__fadeInRight flex gap-5">
                             <p>Area: {stateDetails.area}</p>
                             <p><span>Status: </span>{stateDetails.status}</p>
                             <p>Price: {stateDetails.price}</p>
@@ -43,7 +43,7 @@ const EstateDetails = () => {
                         </div>
                         <div>
                         <Link to='/'>
-                            <button className="animate__fadeInUp  btn bg-green-500 text-white">Back to home</button>
+                            <button className="animate__fadeInUp  btn bg-green-500 text-white hover:bg-green-500 ">Back to home</button>
                         </Link>
                     </div>
                     </div>
