@@ -1,5 +1,6 @@
 import { useContext, useState } from "react";
 import { AuthContext } from "../../AuthProvider/AuthProvider";
+import { Helmet } from "react-helmet";
 
 
 const Profile = () => {
@@ -13,6 +14,11 @@ const Profile = () => {
 
     return (
         <div className="h-[630px]">
+            <Helmet>
+                <meta charSet="utf-8" />
+                <title>Profile</title>
+                <link rel="canonical" href="http://mysite.com/example" />
+            </Helmet>
             <div className="flex flex-col lg:flex-row justify-center items-center md:gap-3 lg:gap-7 lg:w-[500px] mx-auto mt-20 p-5 border rounded-xl">
                 <div className="">
                     <img src={photo} alt="" className="w-[150px] mx-auto" />
